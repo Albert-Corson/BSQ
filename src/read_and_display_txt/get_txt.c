@@ -14,6 +14,8 @@ int *get_txt_size(const char *path)
     char *nb_line = "\0";
     int *rtn = malloc(sizeof(int) * 3);
 
+    if (fd < 0)
+        exit (84);
     while (tmp[0] != '\n') {
         read(fd, tmp, 1);
         nb_line = my_allocat(nb_line, tmp);

@@ -37,30 +37,29 @@ int is_sqr(char **txt, int x, int y, int t)
     int i = x;
 
     while (n < y_max) {
-        if (txt[n][i] == 'o') {
-            t = (i - x);
-            return (is_sqr(txt, x, y, t));
-        } else
-            ++i;
+        if (txt[n][i] == 'o')
+            return (0);
+        ++i;
         if (i >= x_max) {
             i = x;
             ++n;
         }
     }
-    return (t);
+    return (1);
 }
 
 int find_sqr(char **txt, int x, int y, int *biggest)
 {
     int l = get_length(txt, x, y);
     int h = get_height(txt, x, y);
-    int t = MIN(l, h) - 1;
+    int t = MIN(l, h);
 
-    t = is_sqr(txt, x, y, t);
     if (t > biggest[0]) {
-        biggest[0] = t;
-        biggest[1] = x;
-        biggest[2] = y;
+        if (is_sqr(txt, x, y, t)) {
+            biggest[0] = t;
+            biggest[1] = x;
+            biggest[2] = y;
+        }
     }
     if (h > l)
         return (l - 1);

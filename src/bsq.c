@@ -38,5 +38,5 @@ void bsq(char **txt, int *size)
         }
     }
     write_sqr(txt, biggest[0], biggest[1], biggest[2]);
-    display_txt(txt);
+    display_txt(txt, size[0]);
 }

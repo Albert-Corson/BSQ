@@ -7,12 +7,13 @@
 
 #include "bsq.h"
 
-void display_txt(char **txt)
+void display_txt(char **txt, int line_len)
 {
     int i = 0;
 
     while (txt[i][0] != '\0') {
-        my_printf("%s\n", txt[i]);
+        write(1, txt[i], line_len);
+        write(1, "\n", 1);
         ++i;
     }
     exit (0);

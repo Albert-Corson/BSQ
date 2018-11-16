@@ -13,7 +13,7 @@ int *get_txt_size(const char *path);
 
 char **get_txt(const char *path, int *size);
 
-void display_txt(char **txt);
+void display_txt(char **txt, int line_len);
 
 void check_txt(char **txt, int *size);
 

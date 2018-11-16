@@ -11,7 +11,7 @@ int get_height(char **txt, int x, int y)
 {
     int h = 0;
 
-    while (txt[y][x] == '.') {
+    while (txt[y][0] != '\0' && txt[y][x] == '.') {
         ++h;
         ++y;
     }

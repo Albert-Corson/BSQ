@@ -29,7 +29,7 @@ void bsq(char **txt, int *size)
     int *biggest = malloc(sizeof(int) * 3);
 
     while (y < size[1]) {
-        if (txt[y][x] == '.')
+        if (txt[y][x] == 46)
             x += find_sqr(txt, x, y, biggest);
         ++x;
         if (x == size[0]) {

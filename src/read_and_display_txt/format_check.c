@@ -13,7 +13,7 @@ void check_txt(char **txt, int *size)
     int i = 0;
 
     while (n < size[1]) {
-        if (txt[n][i] != '.' && txt[n][i] != 'o')
+        if (txt[n][i] != 46 && txt[n][i] != 111)
             exit (84);
         ++i;
         if (i == size[0]) {

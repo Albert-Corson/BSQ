@@ -21,17 +21,14 @@ WARNINGS	=	-Wall -Wextra
 NAME	=	bsq
 
 $(NAME):	$(OBJ)
-	make -C./lib/my/
-	gcc -o $(NAME) $(OBJ) $(WARNINGS) -L./lib/my/ -lmy
+	gcc -o $(NAME) $(OBJ) $(WARNINGS)
 
 all:    $(NAME)
 
 clean:
-	make clean -C./lib/my/
 	rm -f $(OBJ)
 
 fclean:	clean
-	make fclean -C./lib/my/
 	rm -f $(NAME)
 
 re:	fclean all

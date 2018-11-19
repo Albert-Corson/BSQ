@@ -11,7 +11,7 @@ int get_height(char **txt, int x, int y)
 {
     int h = 0;
 
-    while (txt[y][0] != '\0' && txt[y][x] == '.') {
+    while (txt[y][0] != '\0' && txt[y][x] == 46) {
         ++h;
         ++y;
     }
@@ -22,7 +22,7 @@ int get_length(char **txt, int x, int y)
 {
     int l = 0;
 
-    while (txt[y][x] == '.') {
+    while (txt[y][x] == 46) {
         ++l;
         ++x;
     }
@@ -37,11 +37,11 @@ int is_sqr(char **txt, int x, int y, int t)
     int i = x;
 
     while (n < y_max) {
-        if (txt[n][i] == 'o') {
-            t = i - x;
+        if (txt[n][i] == 111) {
+            t = (i - x > n - y) ? i - x : n - y;
             return (is_sqr(txt, x, y, t));
-        } else
-            ++i;
+        }
+        ++i;
         if (i >= x_max) {
             i = x;
             ++n;

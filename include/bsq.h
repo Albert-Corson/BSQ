@@ -5,7 +5,16 @@
 ** bsq.h
 */
 
-#include "my.h"
+#define MAX(x, y) (x > y ? x : y)
+#define MIN(x, y) (x < y ? x : y)
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stddef.h>
 
 void bsq(char **txt, int *size);
 

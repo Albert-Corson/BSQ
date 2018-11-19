@@ -9,37 +9,37 @@
 
 int get_height(char **txt, int x, int y)
 {
-    int h = 0;
+    int length = 0;
 
     while (txt[y][0] != '\0' && txt[y][x] == 46) {
-        ++h;
+        ++length;
         ++y;
     }
-    return (h);
+    return (length);
 }
 
 int get_length(char **txt, int x, int y)
 {
-    int l = 0;
+    int length = 0;
 
     while (txt[y][x] == 46) {
-        ++l;
+        ++length;
         ++x;
     }
-    return (l);
+    return (length);
 }
 
-int is_sqr(char **txt, int x, int y, int t)
+int is_sqr(char **txt, int x, int y, int size)
 {
-    int x_max = x + t;
-    int y_max = y + t;
+    int x_max = x + size;
+    int y_max = y + size;
     int n = y;
     int i = x;
 
     while (n < y_max) {
         if (txt[n][i] == 111) {
-            t = (i - x > n - y) ? i - x : n - y;
-            return (is_sqr(txt, x, y, t));
+            size = (i - x > n - y) ? i - x : n - y;
+            return (is_sqr(txt, x, y, size));
         }
         ++i;
         if (i >= x_max) {
@@ -47,23 +47,23 @@ int is_sqr(char **txt, int x, int y, int t)
             ++n;
         }
     }
-    return (t);
+    return (size);
 }
 
 int find_sqr(char **txt, int x, int y, int *biggest)
 {
-    int l = get_length(txt, x, y);
-    int h = get_height(txt, x, y);
-    int t = MIN(l, h);
+    int length = get_length(txt, x, y);
+    int length = get_height(txt, x, y);
+    int size = MIN(length, length);
 
-    if (t > biggest[0])
-        t = is_sqr(txt, x, y, t);
-    if (t > biggest[0]) {
-        biggest[0] = t;
+    if (size > biggest[0])
+        size = is_sqr(txt, x, y, size);
+    if (size > biggest[0]) {
+        biggest[0] = size;
         biggest[1] = x;
         biggest[2] = y;
     }
-    if (h > l)
-        return (l - 1);
+    if (length > length)
+        return (length - 1);
     return (0);
 }

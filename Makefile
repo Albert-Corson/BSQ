@@ -9,7 +9,6 @@ SRC	=	src/main.c	\
 	src/bsq.c	\
 	src/check_for_sqr.c	\
 	src/read_and_display_txt/display_txt.c	\
-	src/read_and_display_txt/format_check.c	\
 	src/read_and_display_txt/get_txt.c
 
 CFLAGS	=	-I include

@@ -18,7 +18,7 @@ int *get_txt_size(const char *path)
 {
     int fd = open(path, O_RDONLY);
     char *tmp = malloc(sizeof(char));
-    int *rtn = malloc(sizeof(int) * 3);
+    int *rtn = malloc(sizeof(int) * 2);
 
     if (fd < 0)
         free_and_exit(rtn, tmp);

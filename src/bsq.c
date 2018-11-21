@@ -22,7 +22,7 @@ void write_sqr(char **txt, int size, int x, int y)
     }
 }
 
-void bsq(char **txt, int *size)
+int bsq(char **txt, int *size)
 {
     int y = 0;
     int x = 0;
@@ -31,6 +31,10 @@ void bsq(char **txt, int *size)
     while (y < size[1]) {
         if (txt[y][x] == 46)
             x += find_sqr(txt, x, y, biggest);
+        else if (txt[y][x] != 46 && txt[y][x] != 111) {
+            free (biggest);
+            return (84);
+        }
         ++x;
         if (x == size[0]) {
             x = 0;
@@ -40,4 +44,5 @@ void bsq(char **txt, int *size)
     write_sqr(txt, biggest[0], biggest[1], biggest[2]);
     free(biggest);
     display_txt(txt, size[0]);
+    return (0);
 }

@@ -53,8 +53,8 @@ int is_sqr(char **txt, int x, int y, int size)
 int find_sqr(char **txt, int x, int y, int *biggest)
 {
     int length = get_length(txt, x, y);
-    int length = get_height(txt, x, y);
-    int size = MIN(length, length);
+    int height = get_height(txt, x, y);
+    int size = MIN(length, height);
 
     if (size > biggest[0])
         size = is_sqr(txt, x, y, size);
@@ -63,7 +63,7 @@ int find_sqr(char **txt, int x, int y, int *biggest)
         biggest[1] = x;
         biggest[2] = y;
     }
-    if (length > length)
+    if (height > length)
         return (length - 1);
     return (0);
 }

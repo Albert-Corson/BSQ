@@ -7,32 +7,41 @@
 
 #include "bsq.h"
 
-void free_and_exit(int *rtn, char *tmp)
+void check_error(const char *path)
 {
-    free(rtn);
-    free(tmp);
-    exit (84);
+    int fd = open(path, O_RDONLY);
+    char tmp;
+
+    if (fd < 0)
+        exit (84);
+    read(fd, &tmp, 1);
+    if (tmp > '9' || tmp < '0') {
+        close(fd);
+        exit (84);
+    }
+    close(fd);
 }
 
 int *get_txt_size(const char *path)
 {
     int fd = open(path, O_RDONLY);
-    char *tmp = malloc(sizeof(char));
+    char tmp;
     int *rtn = malloc(sizeof(int) * 2);
 
-    if (fd < 0)
-        free_and_exit(rtn, tmp);
-    while (tmp[0] != '\n') {
-        read(fd, tmp, 1);
-        if (tmp[0] != '\n')
-            rtn[1] = (rtn[1] * 10) + (tmp[0] - 48);
+    while (tmp != '\n') {
+        read(fd, &tmp, 1);
+        if (tmp != '\n')
+            rtn[1] = (rtn[1] * 10) + (tmp - 48);
     }
-    read(fd, tmp, 1);
-    while (tmp[0] != '\n') {
-        read(fd, tmp, 1);
+    read(fd, &tmp, 1);
+    if (tmp != 46 && tmp != 111) {
+        free(rtn);
+        exit (84);
+    }
+    while (tmp != '\n') {
+        read(fd, &tmp, 1);
         ++rtn[0];
     }
-    free(tmp);
     close(fd);
     return (rtn);
 }

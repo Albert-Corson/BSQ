@@ -25,3 +25,5 @@ char **get_txt(const char *path, int *size);
 void display_txt(char **txt, int line_len);
 
 int find_sqr(char **txt, int x, int y, int *biggest);
+
+void check_error(const char *path);

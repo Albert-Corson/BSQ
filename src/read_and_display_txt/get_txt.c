@@ -49,7 +49,7 @@ int *get_txt_size(const char *path)
 char **get_txt(const char *path, int *size)
 {
     char **rtn = malloc(sizeof(char *) * (size[1] + 1));
-    char *tmp = malloc(sizeof(char *));
+    char *tmp = malloc(sizeof(char));
     int fd = open(path, O_RDONLY);
     int n = 0;
 

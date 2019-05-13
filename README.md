@@ -13,7 +13,7 @@ A board is represented by a file passed as the program’s argument. The file is
 ### How to test it
 `./bsq board.txt`
 
-*A test board ("testboard.txt") is located at the root's repository for convenient testing*
+*A test board ("testboard.txt") is located at the repository's root for convenient testing*
 
 ##### Board generator
 For testing purposes, a board generator is present in the projet's repository:
